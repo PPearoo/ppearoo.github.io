@@ -143,8 +143,13 @@ p.card-text {
     padding: 0.7rem 1rem;
     border: none;
     border-radius: 10px;
-    background-color: #000;
+    background-color: #0a0a0a;
     color: #fff;
     text-decoration: none;
     float: right;
+    transition: all 0.25s ease-in-out;
+}
+
+.card .btn:hover {
+    background-color: #002363;
 }
