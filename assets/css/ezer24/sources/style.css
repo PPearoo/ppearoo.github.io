@@ -1,0 +1,33 @@
+body {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-family: 'Montserrat';
+    text-align: center;
+}
+
+ol {
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    width: 60%;
+    margin: 0 auto;
+    counter-reset: item;
+    list-style-type: none;
+}
+  
+li::before {
+  content: "[" counter(item) "] ";
+  counter-increment: item;
+}
+
+a:visited {
+    color: #fff;
+}
+
+a {
+    color: #fff;
+}
+
+p {
+    font-size: 0.8em;
+}
