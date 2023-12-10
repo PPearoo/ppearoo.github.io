@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="title" content="Pearoo">
+    <meta name="description" content="About">
+    <meta name="theme-color" content="#0a0a0a">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pearoo.dev/about">
+    <meta property="og:site_name" content="Pearoo">
+    <meta property="og:title" content="About">
+    <meta property="og:description" content="That one silly jumping cat everyone's been talking about.">
+    <meta property="og:image" itemprop="image" content="https://media.discordapp.net/attachments/1084415793640505355/1183332078247489586/pfp.png">
+    <meta property="og:image:secure_url" itemprop="image" content="https://media.discordapp.net/attachments/1084415793640505355/1183332078247489586/pfp.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="200">
+    <meta property="og:image:height" content="200">
+
+    <link rel="shortcut icon" href="https://media.discordapp.net/attachments/1084415793640505355/1183332077777723483/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="./assets/css/about/style.css">
+    <title>Pearoo | About</title>
+</head>
+<body>
+    <div class="nav">
+        <!-- <a href="projects.html" class="nav-item">projects</a> -->
+        <a href="https://pearoo.dev/" class="nav-item">home</a>
+    </div>
+    <div class="main">
+        <img src="https://media.discordapp.net/attachments/1084415793640505355/1183332078247489586/pfp.png" alt="Jumping Cat" id="pfp">
+        <div class="text">
+            <h1>Pearoo</h1>
+            <p>Hey! I'm a <span class="age"></span> year-old high school student in Hungary.</p>
+            <p>In my free time, I like to make YouTube videos and code personal projects that I usually publish publicly.</p>
+            <p>I'm also the creator of <a href="https://fightman01bot.com">FightMan01 bot</a>, Hungary's most popular Discord bot.</p>
+            <p>(i use :3 ironically AND unironically.)</p>
+        </div>
+    </div>
+    <script>
+        const age = document.querySelector(".age");
+        const birthDate = new Date("2008-01-13");
+        const today = new Date();
+        age.innerHTML = today.getFullYear() - birthDate.getFullYear();
+    </script>
+</body>
+</html>

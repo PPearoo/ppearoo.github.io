@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Caslon+Text&family=Noto+Serif+JP:wght@600&family=Silkscreen&family=Tinos&display=swap');
+
+body {
+    background-color: #9B9190;
+}
+
+a.nav-item {
+    font-family: 'Silkscreen', sans-serif;
+    font-size: 1.5rem;
+    color: #000;
+    text-decoration: none;
+    margin: 0 1rem;
+}
+
+.nav {
+    display: flex;
+    justify-content: center;
+    padding: 1vw;
+    align-items: center;
+}
+
+.nav a {
+    margin: 2vw;
+    position: relative;
+}
+
+.nav a:after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 3px;
+  bottom: -5px;
+  left: 0;
+  background-color: #000;
+  transform-origin: bottom right;
+  transition: transform 0.25s ease-out;
+}
+
+.nav a:hover:after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.main {
+    justify-content: center;
+    align-items: center;
+    display: block;
+}
+
+.main img {
+    width: 10rem;
+    display: flex;
+    vertical-align: middle;
+    justify-content: center;
+    margin: auto;
+}
+
+.main .text {
+    display: block;
+    text-align: center;
+    overflow-wrap: break-word;
+}
+
+.main .text {
+    text-align: center;
+}
+
+.main h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 5rem;
+    margin: 0;
+}
+
+.main p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Noto Serif JP', serif;
+    margin: 0;
+}
+
+p.small {
+    margin-top: 5rem;
+    font-size: 1em;
+    opacity: 0.5;
+}
