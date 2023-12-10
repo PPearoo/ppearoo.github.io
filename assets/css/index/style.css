@@ -80,10 +80,12 @@ a.nav-item {
 }
 
 .main .buttons {
-    width: 30%;
+    width: 35%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
     margin: auto;
     margin-top: 10vh;
     font-family: 'Silkscreen', sans-serif;
