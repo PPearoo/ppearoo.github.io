@@ -4,8 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ezer24</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/ezer24/index/style.css">
+    <link rel="shortcut icon" href="/assets/img/ezer24_transparent.webp" type="image/webp">
 </head>
 <body>
-    <h1>hello world :3</h1>
+    <div class="main text-center container-fluid">
+        <h1><b>ezer24</b></h1>
+        <h2>Érdekes témák - érdekes nézőponttal.</h2>
+        <div class="row w-25 gap-3 gap-lg-0 m-auto text-center">
+            <div class="col-lg-6 col-12 text-center">
+                <a href="https://youtube.com/@ezerhuszonnegy?sub_confirmation=1" class="btn">YouTube</a>
+            </div>
+            <div class="col-lg-6 col-12 text-center">
+                <a href="https://discord.gg/wvsvAbarcc" class="btn">Discord</a>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p class="text-center">Feliratkozók</p>
+        <div class="footer-subs"></div>
+        <div class="subs-bar"><div class="bar-accent"></div></div>
+    </footer>
+    <script>
+        const fonts = [
+            "Arial",
+            "Arial Black",
+            "Comic Sans MS",
+            "Courier New",
+            "Georgia",
+            "Impact",
+            "Lucida Console",
+            "Lucida Sans Unicode",
+            "Palatino Linotype",
+            "Tahoma",
+            "Times New Roman",
+            "Trebuchet MS",
+            "Verdana",
+            "Montserrat"
+        ];
+        for(let i = 0; i < fonts.length; i++) {
+            setTimeout(() => {
+                document.querySelector("h1").style.fontFamily = fonts[i];
+            }, 200 * i);
+        }
+    </script>
+    <script src="/assets/css/ezer24/index/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 </html>
