@@ -1,4 +1,14 @@
 body {
     background-color: gray;
     text-align: center;
+    overflow: hidden;
+}
+
+img {
+    width: 80vw;
+    height: auto;
+}
+
+figure {
+    margin: auto;
 }
