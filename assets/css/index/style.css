@@ -89,6 +89,7 @@ a.nav-item {
     margin: auto;
     margin-top: 10vh;
     font-family: 'Silkscreen', sans-serif;
+    text-align: center;
 }
 
 .main .buttons a {
@@ -98,6 +99,7 @@ a.nav-item {
     background-color: #fff;
     border-radius: 5px;
     transition: all 0.25s ease-in-out;
+    text-align: center;
 }
 
 .main .buttons a:hover {
