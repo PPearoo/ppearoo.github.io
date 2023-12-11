@@ -119,3 +119,19 @@ p.hidden {
         margin: 5em 0;
     }
 }
+
+a.secret {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+a.secret:hover {
+    opacity: 1;
+}
+
+a.secret:visited {
+    color: #000;
+    opacity: 0;
+}
