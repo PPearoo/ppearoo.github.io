@@ -22,6 +22,11 @@ h2 {
     gap: 16px;
 }
 
+img {
+    width: 10rem;
+    margin-bottom: 5%;
+}
+
 .row a.btn {
     color: white;
     font-family: 'Montserrat', sans-serif;
@@ -36,7 +41,6 @@ h2 {
     color: rgb(0, 0, 0);
     font-family: 'Montserrat', sans-serif;
     background-color: #ffffff;
-    border-color: #0f0f0f;
 }
 
 footer{
