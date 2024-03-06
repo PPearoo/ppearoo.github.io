@@ -118,6 +118,15 @@ p.hidden {
         text-align: center;
         margin: 5em 0;
     }
+
+    .buttons {
+        width: 90vw;
+        margin: auto;
+    }
+
+    .buttons > a {
+        width: 100%;
+    }
 }
 
 a.secret {
