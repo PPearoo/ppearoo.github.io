@@ -2,4 +2,4 @@
 
 source code
 
-thanks @chlkrisz and @sarkyofficql for the help :3
+thanks @chlkrisz and @sarkydev for the help :3
