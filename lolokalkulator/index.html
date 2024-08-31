@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lolokalkulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <h1>Mennyi Meszaros Lorincet er a bankszamlamon levo osszeg?</h1>
+        <input type="number" placeholder="egyenleg" id="money" autocomplete="off">
+        <p id="result">0 Lolo</p>
+    </div>
+    <script>
+        // automatically update the "result" paragraph when the input changes. 1 EUR = 360 HUF
+        document.getElementById("money").addEventListener("input", function() {
+            const inputValue = document.getElementById("money").value;
+            const result = inputValue / 990000000000;
+            
+            // Convert to a fixed-point number with sufficient precision
+            const fullNumber = result.toFixed(20);
+
+            // Convert to a string and remove trailing zeros if any
+            const formattedNumber = fullNumber.replace(/\.?0+$/, "");
+
+            document.getElementById("result").innerText = formattedNumber + " Lolo";
+        });
+    </script>
+</body>
+</html>
