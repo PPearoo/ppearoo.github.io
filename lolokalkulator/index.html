@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +8,38 @@
 </head>
 <body>
     <div class="main">
-        <h1>Mennyi Meszaros Lorincet er a bankszamlamon levo osszeg?</h1>
-        <input type="number" placeholder="egyenleg" id="money" autocomplete="off">
-        <p id="result">0 Lolo</p>
+        <h1>Mennyi <span id="meszaros">Mészáros Lőrincet</span> ér a bankszámlámon lévő összeg?</h1>
+        <div class="balance">
+            <input type="number" placeholder="egyenleg" id="money" autocomplete="off" autofocus> <p id="currency">Ft</p>
+        </div>
+        <p id="equals">=</p>
+        <div class="lolo">
+            <p id="result">0</p>
+        </div>
     </div>
     <script>
         // automatically update the "result" paragraph when the input changes. 1 EUR = 360 HUF
         document.getElementById("money").addEventListener("input", function() {
             const inputValue = document.getElementById("money").value;
+            if (inputValue < 0) {
+                document.getElementById("result").innerText = "Adósság :(";
+                return;
+            }
             const result = inputValue / 990000000000;
             
-            // Convert to a fixed-point number with sufficient precision
-            const fullNumber = result.toFixed(20);
+            let fullNumber;
+            
+            // remove scientific notation
+            if (result < 1) {
+                fullNumber = result.toFixed(15);
+            } else {
+                fullNumber = result.toFixed(2);
+            }
 
-            // Convert to a string and remove trailing zeros if any
+            // remove trailing zeroes
             const formattedNumber = fullNumber.replace(/\.?0+$/, "");
 
-            document.getElementById("result").innerText = formattedNumber + " Lolo";
+            document.getElementById("result").innerText = formattedNumber;
         });
     </script>
 </body>

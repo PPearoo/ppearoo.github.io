@@ -3,11 +3,21 @@
 
 body {
     background-color: #1d1d1d;
-    font-family: Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     color: #fff;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     text-align: center;
+}
+
+h1 {
+    font-size: 3vh;
+    margin: 0;
+
 }
 
 .main {
@@ -15,29 +25,39 @@ body {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    gap: 1px;
 }
 
-.main input {
-    width: 20%;
+
+.balance {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1vw;
+    font-size: 3.5vh;
+}
+
+input {
+    width: 30vh;
     text-align: center;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 1vh;
     border: none;
     background-color: rgba(0, 0, 0, 0.1);
     color: #fff;
-    font-size: 2em;
-    border-bottom: #000 solid 3px;
+    font-size: 1em;
+    border-bottom: #00000063 solid 3px;
     font-family: "Inconsolata", monospace;
     box-sizing: border-box;
     transition: ease-in-out 0.3s;
 }
 
-.main input:focus {
+input:focus {
     outline: none;
-    border-bottom: #00000063 solid 3px;
+    border-bottom: #000 solid 3px;
 }
 
-.main input:hover {
+input:hover {
     background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -47,9 +67,29 @@ input[type=number]::-webkit-outer-spin-button {
   margin: 0; 
 }
 
-p#result {
+#result {
     font-size: 2em;
-    margin: 10px 0;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
+    background-color: #fd8100;
+    padding: 1vh;
+    max-width: 50vw;
+    text-wrap: pretty;
+    transform: skew(-14deg);
+    box-shadow: #000 0px 0px 10px;
+}
+
+#meszaros {
+    background-color: #fd8100;
+    padding: 0.5vh;
+    box-shadow: #000 0px 0px 10px;
+}
+
+#equals {
+    font-size: 2em;
+}
+
+.lolo {
+    display: flex;
+    flex-direction: row;
 }
