@@ -20,13 +20,15 @@
 <body>
     <main>
         <h1>Mennyi <span id="meszaros">Mészáros Lőrincet</span> ér a pénzem?</h1>
-        <div class="balance">
-            <input type="number" placeholder="egyenleg" id="money" autocomplete="off" autofocus> <p id="currency">Ft</p>
-        </div>
-        <p id="equals">=</p>
-        <div class="lolo">
-            <p id="result">0</p>
-            <p id="lolo">Lölő</p>
+        <div class="calculation">
+            <div class="balance">
+                <input type="number" placeholder="egyenleg" id="money" autocomplete="off" autofocus> <p id="currency">Ft</p>
+            </div>
+            <p id="equals">=</p>
+            <div class="lolo">
+                <p id="result">0</p>
+                <p id="lolo">Lölő</p>
+            </div>
         </div>
     </main>
     <footer><p>1 Lölő = 990 milliárd forint</p></footer>
@@ -34,6 +36,10 @@
         // automatically update the "result" paragraph when the input changes. 1 EUR = 360 HUF
         document.getElementById("money").addEventListener("input", function() {
             const inputValue = document.getElementById("money").value;
+            if (inputValue === "") {
+                document.getElementById("result").innerText = "0";
+                return;
+            }
             if (inputValue < 0) {
                 document.getElementById("result").innerText = "Adósság :(";
                 return;

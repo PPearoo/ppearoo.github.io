@@ -20,12 +20,22 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 1px;
     flex-grow: 1;
+    gap: 10vh
+}
+
+.calculation {
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
 }
 
 h1 {
     font-size: 3vh;
+    margin: 0;
+}
+
+p {
     margin: 0;
 }
 
@@ -90,7 +100,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 2em;
 }
 
-p#result {
+#result {
     font-size: 2em;
     font-family: "Montserrat", sans-serif;
     font-weight: bold;
@@ -106,6 +116,7 @@ p#result {
 footer {
     opacity: 0.5;
     text-align: center;
+    padding: 1vh;
 }
 
 @media (max-width: 768px) {
@@ -115,7 +126,7 @@ footer {
 
     #meszaros {
         display: block;
-        margin-top: 1vh;
+        margin: 1vh;
     }
 
     .lolo {
@@ -124,5 +135,10 @@ footer {
 
     #lolo {
         font-size: 2em;
+    }
+
+    #result {
+        display: inline-block;
+        margin: 1vh
     }
 }
