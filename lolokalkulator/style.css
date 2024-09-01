@@ -119,4 +119,12 @@ footer {
         display: block;
         margin-top: 1vh;
     }
+
+    .lolo {
+        display: block;
+    }
+
+    #lolo {
+        font-size: 2em;
+    }
 }
