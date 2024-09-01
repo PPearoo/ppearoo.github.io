@@ -26,7 +26,7 @@
             </div>
             <p id="equals">=</p>
             <div class="lolo">
-                <p id="result">0</p>
+                <p id="result">-</p>
                 <p id="lolo">Lölő</p>
             </div>
         </div>
@@ -36,7 +36,7 @@
         document.getElementById("money").addEventListener("input", function() {
             const inputValue = document.getElementById("money").value;
             if (inputValue === "") {
-                document.getElementById("result").innerText = "0";
+                document.getElementById("result").innerText = "-";
                 return;
             }
             if (inputValue < 0) {
