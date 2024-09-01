@@ -22,7 +22,8 @@
         <h1>Mennyi <span id="meszaros">Mészáros Lőrincet</span> ér a pénzem?</h1>
         <div class="calculation">
             <div class="balance">
-                <input type="number" placeholder="egyenleg" id="money" autocomplete="off" autofocus> <p id="currency">Ft</p>
+                <input type="number" placeholder="egyenleg" id="money" autocomplete="off" autofocus> 
+                <p id="currency">Ft</p>
             </div>
             <p id="equals">=</p>
             <div class="lolo">
@@ -33,36 +34,47 @@
     </main>
     <footer><p>1 Lölő = 990 milliárd forint</p></footer>
     <script>
+        let isMoneyToLolo = true;
+
+        const conversionRate = 990000000000;
+
         document.getElementById("money").addEventListener("input", function() {
-            const inputValue = document.getElementById("money").value;
+            const inputValue = document.getElementById("money").value.replace(/,/g, ".");
+            const resultElement = document.getElementById("result");
+
             if (inputValue === "") {
-                document.getElementById("result").innerText = "-";
+                resultElement.innerText = "-";
                 return;
             }
+
             if (inputValue < 0) {
-                document.getElementById("result").innerText = "Adósság :(";
+                resultElement.innerText = "Adósság :(";
                 return;
             }
-            const result = inputValue / 990000000000;
-            
-            let fullNumber;
-            
-            // remove scientific notation
-            if (result < 1) {
-                fullNumber = result.toFixed(15);
+
+            let formattedNumber;
+            if (isMoneyToLolo) {
+                const result = parseFloat(inputValue) / conversionRate;
+                formattedNumber = result < 1 ? result.toFixed(15) : result.toFixed(2);
+                formattedNumber = formattedNumber.replace(/\.?0+$/, ""); // Végződő nullák eltávolítása
+
+                if (formattedNumber === "727") {
+                    resultElement.innerText = "osu!";
+                    return;
+                }
             } else {
-                fullNumber = result.toFixed(2);
+                const result = 1 / (parseFloat(inputValue) / conversionRate);
+                formattedNumber = `1 : ${result < 1 ? result.toFixed(15) : result.toFixed(0)}`;
             }
 
-            // remove trailing zeroes
-            const formattedNumber = fullNumber.replace(/\.?0+$/, "");
+            resultElement.innerText = formattedNumber.replace(/\./g, ",");
+        });
 
-            if (formattedNumber === "727") {
-                document.getElementById("result").innerText = "osu!";
-                return;
-            }
-
-            document.getElementById("result").innerText = formattedNumber;
+        document.getElementById("result").addEventListener("click", function() {
+            isMoneyToLolo = !isMoneyToLolo;
+            const inputElement = document.getElementById("money");
+            
+            inputElement.dispatchEvent(new Event('input'));
         });
     </script>
 </body>
