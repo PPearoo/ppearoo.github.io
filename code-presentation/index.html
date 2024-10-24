@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox</title>
+    <link rel="shortcut icon" href="/assets/img/favicon.webp" type="image/x-icon">
+    <link rel="stylesheet" href="/code-presentation/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Viktor_Orban.2024.jpg/800px-Viktor_Orban.2024.jpg">
+    <link rel="preconnect" href="https://kep.cdn.indexvas.hu/1/0/5889/58898/588987/58898741_e96d9db775052e0b6124a244efef003c_wm.jpg">
+    <link rel="preconnect" href="https://dkp.hu/uploads/parttagok/1/1.jpg">
+    <link rel="preconnect" href="https://upload.wikimedia.org/wikipedia/commons/a/ae/Don%C3%A1th_Anna_J%C3%BAlia_2020-ban.jpg">
+    <link rel="preconnect" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Kov%C3%A1cs_Gergely_%282024%29_%28cropped%29.jpg/800px-Kov%C3%A1cs_Gergely_%282024%29_%28cropped%29.jpg">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="content"></div>
+        <textarea autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+    </main>
+    <div class="code"></div>
+
+    <script>
+        // code for handling code inside the textarea
+        const input = document.querySelector("textarea");
+        const code = document.querySelector(".code");
+
+        input.addEventListener("input", function() {
+            code.innerHTML = input.value;
+        });
+
+        input.addEventListener("keydown", function(event) { // anti-tab
+            if (event.key === "Tab") {
+                event.preventDefault();
+                const start = input.selectionStart;
+                const end = input.selectionEnd;
+                input.value = input.value.substring(0, start) + "    " + input.value.substring(end);
+                input.selectionStart = input.selectionEnd = start + 4;
+            }
+        });
+
+        // code for handling presentation
+        const content = document.querySelector(".content");
+        const pages = [
+            {
+                title: "Mi az a flexbox?",
+                content: "A flexbox egy olyan megjelenítési mód, amely segítségével könnyen elrendezhetjük az elemeket egy sorban vagy oszlopban.\nSegítségével könnyen tudjuk igazítani az elemeket a soron belül, illetve az elemek közötti távolságot is könnyen beállíthatjuk.\nGyakran használjuk reszponzív designok megvalósításához, ugyanis nagyon flexibilis beállításokat módosíthatunk velük CSS-ben. Esetleg már láthattad is őket: `justify-content: center`, `align-items: center`, `gap: 10px`, `align-self: flex-end`.",
+                code: `<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+.container {
+    display: flex;
+    border: 1px solid black;
+    background: purple;
+    height: 150px !important;
+    align-items: center;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 0 50px;
+}
+
+.box {
+    background: #ff9900 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+</style>`
+            },
+            {
+                title: "Flexbox alapok",
+                content: "Flexbox beállításához a `display` beállítást kell módosítanunk az adott elemen.",
+                code: `<style>
+.container {
+    display: block;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "Flexbox alapok",
+                content: "Flexbox beállításához a `display` beállítást kell módosítanunk az adott elemen.\nA flexbox létre lett hozva, de egyelőre semmi érdekeset nem látunk. Ez azért van, mert az összes elem egybefolyik. Ha egy körvonalat rakok a dobozokra, jobban lehet látni, hogy pontosan miért is van ez: minden egy sorban van, egymás után.",
+                code: `<style>
+.container {
+    display: flex;
+}
+
+.box {
+    border: 1px solid black;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "gap",
+                content: "Flexbox beállításához a `display` beállítást kell módosítanunk az adott elemen.\nA flexbox létre lett hozva, de egyelőre semmi érdekeset nem látunk. Ez azért van, mert az összes elem egybefolyik. Ha egy körvonalat rakok a dobozokra, jobban lehet látni, hogy pontosan miért is van ez: minden egy sorban van, egymás után.\nEzt ki lehet küszöbölni a tárolóelemre alkalmazható `gap` tulajdonsággal. Ez a tárolóelemben található elemek közötti résnek tudja meghatározni a méretét.",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+
+.box {
+    border: 1px solid black;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "gap",
+                content: "Flexbox beállításához a `display` beállítást kell módosítanunk az adott elemen.\nA flexbox létre lett hozva, de egyelőre semmi érdekeset nem látunk. Ez azért van, mert az összes elem egybefolyik. Ha egy körvonalat rakok a dobozokra, jobban lehet látni, hogy pontosan miért is van ez: minden egy sorban van, egymás után.\nEzt ki lehet küszöbölni a tárolóelemre alkalmazható `gap` tulajdonsággal. Ez a tárolóelemben található elemek közötti résnek tudja meghatározni a méretét.\nÁllítsunk be egy olyan `gap`-et, ami 30px széles!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: [  ];
+}
+
+.box {
+    border: 1px solid black;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "flex-direction",
+                content: "A flexbox alapértelmezetten sorosan rendezi el az elemeket. Ezt át lehet állítani a `flex-direction` tulajdonság megadásával.\nEnnek lehetséges értékei: `row`, `row-reverse`, `column` és `column-reverse`.",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "flex-direction",
+                content: "A flexbox alapértelmezetten sorosan rendezi el az elemeket. Ezt át lehet állítani a `flex-direction` tulajdonság megadásával.\nEnnek lehetséges értékei: `row`, `row-reverse`, `column` és `column-reverse`.\nÁllítsuk be, hogy oszloposan rendeződjenek el az elemek!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    flex-direction: [        ];
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "flex-direction",
+                content: "A flexbox alapértelmezetten sorosan rendezi el az elemeket. Ezt át lehet állítani a `flex-direction` tulajdonság megadásával.\nEnnek lehetséges értékei: `row`, `row-reverse`, `column` és `column-reverse`.\nAz oszlopos elrendezés tökéletesen működik, de tegyük fel, hogy szeretnénk, hogy fordított sorrendben legyenek a kockák. Egy új CSS szabályt létrehozva megkülönböztetem az első és utolsó kockát, ti pedig mondjátok meg, hogyan lehetne megoldani ezt!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<style>
+.container .box:first-child {background-color: #49f9ff;} .container .box:last-child {background-color: #00588b;}
+</style>`,
+            },
+            {
+                title: "flex-direction",
+                content: "A flexbox alapértelmezetten sorosan rendezi el az elemeket. Ezt át lehet állítani a `flex-direction` tulajdonság megadásával.\nEnnek lehetséges értékei: `row`, `row-reverse`, `column` és `column-reverse`.\nAz elrendezést nyilván soros elrendezésben is meg lehet változtatni. Na vajon hogyan?",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    flex-direction: row;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<style>
+.container .box:first-child {background-color: #49f9ff;} .container .box:last-child {background-color: #00588b;}
+</style>`,
+            },
+            {
+                title: "flex-wrap",
+                content: "A flexbox alapértelmezetten nem töri sort az elemeknél, hanem inkább összenyomja őket. Ezt a viselkedést a `flex-wrap` tulajdonsággal lehet módosítani.\nEnnek lehetséges értékei: `nowrap`, `wrap`, `wrap-reverse`.\nÍgy néz ki, ha nem férnek el az elemek egy sorban:",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<style>
+.container .box:first-child {background-color: #49f9ff;} .container .box:last-child {background-color: #00588b;}
+</style>`,
+            },
+            {
+                title: "flex-wrap",
+                content: "A flexbox alapértelmezetten nem töri sort az elemeknél, hanem inkább összenyomja őket. Ezt a viselkedést a `flex-wrap` tulajdonsággal lehet módosítani.\nEnnek lehetséges értékei: `nowrap`, `wrap`, `wrap-reverse`.\nVajon hogyan tudjuk beállítani a sortörést?",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    flex-wrap: [    ];
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+<style>
+.container .box:first-child {background-color: #49f9ff;} .container .box:last-child {background-color: #00588b;}
+</style>`,
+            },
+            {
+                title: "justify-content",
+                content: "A `justify-content` tulajdonsággal tudjuk igazítani az elemeket egy soron belül.\nEnnek lehetséges értékei: `flex-start` (alapértelmezett), `flex-end`, `center`, `space-between`, `space-around`, `space-evenly`.\nVajon melyik érték mit jelenthet?",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    justify-content: flex-start;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "align-items",
+                content: "Az `align-items` tulajdonsággal tudjuk igazítani az elemeket egy oszlopban.\nEnnek lehetséges értékei: `flex-start`, `flex-end`, `center`, `baseline`, `stretch`.\nVajon melyik érték mit jelent?",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "align-items: baseline",
+                content: "Az `align-items` tulajdonsággal tudjuk igazítani az elemeket egy oszlopban.\nEnnek lehetséges értékei: `flex-start`, `flex-end`, `center`, `baseline`, `stretch`.\nA baseline a szövegek első sorához képest igazítja az elemeket.",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    align-items: baseline;
+}
+
+.box {
+    word-wrap: break-word;
+}
+
+.box:nth-child(2) p {
+    padding-top: 30%
+}
+
+</style>
+
+<div class="container">
+    <div class="box"><p>asd</p></div>
+    <div class="box"><p>asdasdasdasdasdasdadas</p></div>
+    <div class="box"><p>sadasdfdasfadsadadasdasdasdfdasfsadfadfafadfafa</p></div>
+</div>`,
+            },
+            {
+                title: "align-content",
+                content: "Az `align-content` tulajdonsággal tudjuk igazítani az elemeket egy oszlopban, ha több sorba kerülnek.\nEnnek lehetséges értékei: `flex-start`, `flex-end`, `center`, `space-between`, `space-around`, `stretch`.\nPróbáljuk ki az összes lehetőséget!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "align-items vs. align-content",
+                content: "Mi a különbség az `align-items` és az `align-content` között?\nAz `align-items` az elemeket igazítja az oszlopban, az `align-content` pedig az egész oszlopot igazítja. Ha csak egy sor van, akkor az `align-content` nem fog látszani.",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+}
+</style>
+
+<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>`,
+            },
+            {
+                title: "order",
+                content: "Az `order` tulajdonsággal tudjuk megváltoztatni az elemek sorrendjét.\nAz alapértelmezett értéke 0, de negatív és pozitív értékeket is megadhatunk.\nIlyenkor nem pontos szám szerinti sorrendet adunk meg, hanem úgymond relatív sorrendet.\nPróbáljuk meg átrendezni a kockákat!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+</style>
+
+<div class="container color">
+    <div class="box one">1</div>
+    <div class="box two">2</div>
+    <div class="box three">3</div>
+    <div class="box four">4</div>
+    <div class="box five">5</div>
+</div>`,
+            },
+            {
+                title: "order",
+                content: "Az `order` tulajdonsággal tudjuk megváltoztatni az elemek sorrendjét.\nAz alapértelmezett értéke 0, de negatív és pozitív értékeket is megadhatunk.\nIlyenkor nem pontos szám szerinti sorrendet adunk meg, hanem úgymond relatív sorrendet.\nMost állítsunk fel egy sorrendet az alábbi emberekről az `order` segítségével!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+</style>
+
+<div class="container images">
+    <div class="box one">Wikipédia</div>
+    <div class="box two">Index</div>
+    <div class="box three">dkp.hu</div>
+    <div class="box four">Wikipédia</div>
+    <div class="box five">Wikipédia</div>
+</div>`,
+            },
+            {
+                title: "flex-grow",
+                content: "A `flex-grow` tulajdonsággal tudjuk beállítani, hogy az elemek hogyan nőjenek a rendelkezésre álló hely kihasználásával.\nAz alapértelmezett értéke 0, de más, pozitív értéket is megadhatunk.\nPróbáljuk ki, hogy mi történik, ha az egyik elemnek nagyobb a `flex-grow` értéke!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+
+.box.three {
+    flex-grow: 0;
+}
+
+</style>
+
+<div class="container color">
+    <div class="box one">1</div>
+    <div class="box two">2</div>
+    <div class="box three">3</div>
+    <div class="box four">4</div>
+    <div class="box five">5</div>
+</div>`,
+            },
+            {
+                title: "flex-grow",
+                content: "A `flex-grow` tulajdonsággal tudjuk beállítani, hogy az elemek hogyan nőjenek a rendelkezésre álló hely kihasználásával.\nAz alapértelmezett értéke 0, de más, pozitív értéket is megadhatunk.\nA `flex-grow` szintén nem abszolút. Itt azt adjuk meg, hogy az elem a kitölthető üres helynek hanyadrészét foglalja el.\nPróbáljunk meg több elemet is módosítani, és nézzük meg, mi lesz belőle!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+
+.box.three {
+    flex-grow: 1;
+}
+
+</style>
+
+<div class="container color">
+    <div class="box one">1</div>
+    <div class="box two">2</div>
+    <div class="box three">3</div>
+    <div class="box four">4</div>
+    <div class="box five">5</div>
+</div>`,
+            },
+            {
+                title: "align-self",
+                content: "Nagyon egyszerű: olyan, mintha egy specifikus elemre alkalmaznánk az `align-items` tulajdonságot.\nEnnek lehetséges értékei: `flex-start`, `flex-end`, `center`, `baseline`, `stretch`.\nPróbáljuk ki, hogy mi történik, ha az egyik elemnek más az `align-self` értéke!",
+                code: `<style>
+.container {
+    display: flex;
+    gap: 15px;
+}
+
+.box.three {
+    align-self: initial;
+}
+
+</style>
+
+<div class="container color">
+    <div class="box one">1</div>
+    <div class="box two">2</div>
+    <div class="box three">3</div>
+    <div class="box four">4</div>
+    <div class="box five">5</div>
+</div>`,
+            },
+            {
+                title: "Köszönöm a figyelmet!",
+                content: 'Hasznos tudnivalók: <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">https://css-tricks.com/snippets/css/a-guide-to-flexbox/</a>\nSajnos mindenbe nem tudtam belemenni, viszont fontos, hogy ha valamit nem értetek, kérdezzetek engem, vagy a ChatGPT-t.',
+                code: `<div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+
+.code {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    border: 1px solid black;
+    background: purple;
+    height: 150px !important;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    gap: 20px;
+    padding: 0 50px;
+}
+
+.box {
+    background: #ff9900 !important;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 10px;
+    border: 1px solid black;
+}
+
+.box:nth-child(2) {
+    height: 50% !important;
+}
+
+</style>`
+            },
+
+        ];
+        let currentPage = 0;
+
+        function showPage(pageIndex) {
+            const paragraphs = pages[pageIndex].content
+                .split("\n") // every \n is a new paragraph
+                .map(paragraph => paragraph.replace(/`(.*?)`/g, '<span>$1</span>')) // backticks should look like code lines
+                .map(paragraph => `<p>${paragraph}</p>`) // wrap everything in a paragraph
+                .join("");
+            content.innerHTML = `
+                <h1>${pages[pageIndex].title}</h1>
+                ${paragraphs}
+            `;
+            if (pages[pageIndex].code) {
+                input.value = pages[pageIndex].code;
+                code.innerHTML = pages[pageIndex].code;
+                const styleTag = pages[pageIndex].code.match(/<style>(.*?)<\/style>/);
+                if (styleTag) {
+                    code.setAttribute("style", styleTag[1]); // prioritize style tags
+                }
+            } else {
+                input.value = "";
+                code.innerHTML = "";
+            }
+        }
+
+        showPage(currentPage);
+
+        document.addEventListener("keydown", function(event) {
+            if (event.target.tagName === "TEXTAREA") {
+                return; // dont do anything inside the input thing
+            }
+
+            if (event.key === "ArrowRight") {
+                currentPage = Math.min(currentPage + 1, pages.length - 1); // too lazy to add index checking inside the function lolz
+                showPage(currentPage);
+            } else if (event.key === "ArrowLeft") {
+                currentPage = Math.max(currentPage - 1, 0);
+                showPage(currentPage);
+            }
+        });
+
+        input.focus();
+    </script>
+</body>
+</html>

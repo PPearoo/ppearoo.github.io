@@ -1,0 +1,157 @@
+html {
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-size: 1.5rem;
+}
+
+body {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    height: 100dvh;
+    width: 100dvw;
+    overflow: hidden;
+}
+
+h1 {
+    margin: 0;
+}
+
+main, .code {
+    width: 50%;
+}
+
+main {
+    background-color: #f0f0f0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+}
+
+.code {
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-left: 1px solid #e0e0e0;
+}
+
+main > * {
+    min-height: 50%;
+    min-width: 100%;
+}
+
+main textarea {
+    justify-self: center;
+    align-self: center;
+    justify-content: start;
+    align-content: start;
+    align-items: start;
+    font-family: "JetBrains Mono", monospace;
+    border-radius: 0%;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    resize: none;
+    font-size: 1em;
+    white-space: pre;
+    overflow-wrap: normal;
+    overflow-x: scroll;
+    font-variant-ligatures: none;
+}
+
+main textarea:focus {
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.50);
+}
+
+main .content {
+    overflow: scroll;
+}
+
+main .content span {
+    font-family: "JetBrains Mono", monospace;
+    color: #ff5e5e;
+    background-color: #cacaca;
+    padding: 2px 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 90%;
+    line-height: 190%;
+}
+
+.code .container {
+    display: flex;
+    height: 100%;
+}
+
+.code .box {
+    background: #66c4ff;
+    color: #fff;
+    width: 7dvw;
+    height: 7dvw;
+    padding: 10px;
+}
+
+.code .box * {
+    word-wrap: break-word;
+    padding: 0;
+    margin: 0;
+}
+
+.code .container.color .box {
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+}
+
+.code .container.color .box:nth-child(1) {
+    background: #ff5e5e;
+}
+
+.code .container.color .box:nth-child(2) {
+    background: #71ff5e;
+}
+
+.code .container.color .box:nth-child(3) {
+    background: #5effdc;
+}
+
+.code .container.color .box:nth-child(4) {
+    background: #c75eff;
+}
+
+.code .container.color .box:nth-child(5) {
+    background: #fff75e;
+}
+
+.code .container.images .box:nth-child(1) {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Viktor_Orban.2024.jpg/800px-Viktor_Orban.2024.jpg");
+    background-size: cover;
+    background-position: center top;
+}
+
+.code .container.images .box:nth-child(2) {
+    background: url("https://kep.cdn.indexvas.hu/1/0/5889/58898/588987/58898741_e96d9db775052e0b6124a244efef003c_wm.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.code .container.images .box:nth-child(3) {
+    background: url("https://dkp.hu/uploads/parttagok/1/1.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.code .container.images .box:nth-child(4) {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Don%C3%A1th_Anna_J%C3%BAlia_2020-ban.jpg");
+    background-size: cover;
+    background-position: center top;
+}
+
+.code .container.images .box:nth-child(5) {
+    background: url("https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Kov%C3%A1cs_Gergely_%282024%29_%28cropped%29.jpg/800px-Kov%C3%A1cs_Gergely_%282024%29_%28cropped%29.jpg");
+    background-size: cover;
+    background-position: center top;
+}
