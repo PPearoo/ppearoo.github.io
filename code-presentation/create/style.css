@@ -1,0 +1,185 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: "Inter", sans-serif;
+    font-size: 1.5rem;
+    overflow: hidden;
+    width: 100%;
+}
+
+body {
+    display: flex;
+    height: 100%;
+    width: 100%;
+}
+
+main {
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    min-width: 50%;
+    max-width: 50%;
+    padding: 20px;
+    overflow-y: auto;
+    gap: 1rem; /* Reduced gap to prevent overflow */
+}
+
+body.dark main {
+    background-color: #1a1a1a;
+}
+
+body > .output {
+    background-color: #f8f8f8;
+    border-left: 1px solid #e0e0e0;
+    min-width: 50%;
+    max-width: 50%;
+    padding: 20px;
+    word-wrap: break-word;
+    font-size: 1.2rem;
+}
+
+body.dark > .output {
+    background-color: #2a2a2a;
+}
+
+main > .input {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+main > .input > textarea {
+    flex-grow: 1;
+    font-family: "JetBrains Mono", monospace;
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    resize: none;
+    font-size: 1rem;
+    margin: 0;
+    font-variant-ligatures: none;
+}
+
+body.dark main > .input > textarea {
+    background-color: #2a2a2a;
+    color: #f8f8f8;
+    padding: 0.5rem;
+    border-color: rgba(255, 255, 255, 0.30);
+}
+
+main > .input > textarea#markdown {
+    font-family: 'Inter', sans-serif;
+    font-variant-ligatures: normal;
+}
+
+main > .input > textarea::placeholder {
+    font-style: italic;
+    font-family: 'Inter', sans-serif;
+    font-variant-ligatures: normal;
+    font-size: small;
+}
+
+main > .input > textarea:focus {
+    outline: none;
+    border-color: rgba(0, 0, 0, 0.50);
+}
+
+main > .content {
+    overflow: auto; /* Adjust scrolling for content area */
+}
+
+main > .input > #markdown-preview {
+    overflow-x: scroll;
+    font-size: 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    font-size: 1rem;
+    padding: 0.5rem;
+}
+
+main > .input > #markdown-preview * {
+    margin: 0;
+}
+
+main > .input > .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+body.dark main > .input > .buttons > button {
+    color: #f8f8f8;
+}
+
+main > .input > .buttons > button {
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    border-right: none;
+    border-top: none;
+    background-color: transparent;
+    font-family: 'Inter', sans-serif;
+    padding: 0.3rem 1rem;
+    min-width: 25%;
+}
+
+body.dark main > .input > .buttons > button {
+    border-color: rgba(255, 255, 255, 0.30);
+}
+
+main > .input > .buttons > button:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.30);
+}
+
+main > .input > .buttons > button:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+main > .input > textarea:not(#markdown) {
+    tab-size: 2;
+}
+
+main > .buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
+body.dark main > .buttons > button {
+    color: #f8f8f8;
+}
+
+main > .buttons > button {
+    border-radius: 0;
+    border: 1px solid rgba(0, 0, 0, 0.30);
+    border-right: none;
+    background-color: transparent;
+    font-family: 'Inter', sans-serif;
+    padding: 0.3rem 1rem;
+    min-width: 25%;
+}
+
+body.dark main > .buttons > button {
+    border-color: rgba(255, 255, 255, 0.30);
+}
+
+main > .buttons > button:last-child {
+    border-right: 1px solid rgba(0, 0, 0, 0.30);
+}
+
+main > .buttons > button:hover {
+    background-color: rgba(0, 0, 0, 0.10);
+}
+
+main > textarea:not(#markdown) {
+    tab-size: 2;
+}
+
+body.dark .output {
+    color: #f8f8f8;
+}
